@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+
+    <form action="login" method="post" id="login">
+        <input type="text" name="name" id="name">
+        <input type="password" name="pwd" id="pwd">
+        <button  type="button" id="btn">load</button>
+    </form>
+
+    <script>
+            $("#btn").click( () => 
+            {
+               const data = {
+                    name:document.getElementById("name").value,
+                    pwd:document.getElementById("pwd").value
+                }
+                $.ajax(
+                {
+                    url:"{{url_for('login')}}",
+                    type:"POST",
+                    data:{
+                       "name":data.name,
+                       "pwd":data.pwd
+                    },
+                    success:function(res)
+                    {
+                        console.log(data.name);
+                        console.log(data.pwd);
+                        $("body").html(res);
+                    }
+                });
+            })
+    </script>
+  </body>
+</html>
