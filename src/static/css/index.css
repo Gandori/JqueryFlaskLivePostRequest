@@ -20,6 +20,7 @@ body
 }
 form
 {
+    min-width: 400px;
     display: grid;
     grid-gap: 40px;
 }
@@ -35,6 +36,10 @@ form > input
 form > input:focus
 {
     outline: none;
+}
+#message
+{
+    max-width: 400px;
 }
 h1
 {

@@ -27,7 +27,7 @@ function post(name, pwd)
 
 function input_empty()
 {
-    const h = document.createElement("h1")
+    const h = document.getElementById("message")
     h.innerHTML = "All fields must be filled"
     document.querySelector("body").append(h);
 }
