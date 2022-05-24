@@ -1,3 +1,4 @@
+from cgi import print_arguments
 from flask import Flask 
 from flask import redirect
 from flask import url_for
@@ -37,11 +38,9 @@ class app:
 
 		@self.route("/login", methods = ["POST"])
 		async def login():
-
-			data = [
-				request.form["name"],
-				request.form["pwd"],
-			]
+			name =	request.form["name"]
+			pwd = request.form["pwd"]
+			data = [name, pwd]
 			print(data)
 			return render_template("data.html",data=data)
 

@@ -1,39 +1,22 @@
-<html>
-  <head>
-    <title></title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realtime Communication</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+  
+  <form action="login" method="post">
+    <input type="text" id="name" placeholder="your name">
+    <input type="password" id="pwd" placeholder="your password">
+    <button  type="button" id="submit">load</button>
+  </form>
+  <div id="message"></div>
+  <script src="static/js/index.js"></script>
 
-    <form action="login" method="post" id="login">
-        <input type="text" name="name" id="name">
-        <input type="password" name="pwd" id="pwd">
-        <button  type="button" id="btn">load</button>
-    </form>
-
-    <script>
-            $("#btn").click( () => 
-            {
-               const data = {
-                    name:document.getElementById("name").value,
-                    pwd:document.getElementById("pwd").value
-                }
-                $.ajax(
-                {
-                    url:"{{url_for('login')}}",
-                    type:"POST",
-                    data:{
-                       "name":data.name,
-                       "pwd":data.pwd
-                    },
-                    success:function(res)
-                    {
-                        console.log(data.name);
-                        console.log(data.pwd);
-                        $("body").html(res);
-                    }
-                });
-            })
-    </script>
   </body>
 </html>
